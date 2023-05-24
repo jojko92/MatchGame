@@ -88,7 +88,7 @@ namespace MatchGame
             }
             else if (textBlock.Text == lastTextBlockClicked.Text)
             {
-                textBlock.Visibility=Visibility.Hidden;
+                textBlock.Visibility = Visibility.Hidden;
                 findingMatch = false;
                 matchesFound++;
             }
@@ -103,6 +103,13 @@ namespace MatchGame
         {
             if (matchesFound == 8)
             {
+                foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+                {
+                    if (textBlock.Name != "timeTextBlock")
+                    {
+                        textBlock.Visibility = Visibility.Visible;
+                    }
+                }
                 SetUpGame();
             }
         }
